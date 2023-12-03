@@ -22,11 +22,26 @@ permalink: /fibo/
                 <td>List</td>
             </tr>
             <tr>
-                <td>aaa</td>
-                <td>Awaiting Input</td>
-                <td>Awaiting Input</td>
-                <td>[]</td>
+                <td id=method>Awaiting Input</td>
+                <td id=complexity>Awaiting Input</td>
+                <td id=length>Awaiting Input</td>
+                <td id=fiboList>[]</td>
             </tr>
         </tbody>
     </table>
+    <script>
+        function go() {
+            var fiboList = [];
+            fiboList.push(1);
+            fiboList.push(1);
+            var fiboLen = document.getElementById("list-len").value;
+            document.getElementById("method").innerHTML = "Method 1";
+            document.getElementById("complexity").innerHTML = "TBD";
+            document.getElementById("length").innerHTML = fiboLen;
+            document.getElementById("fiboList").innerHTML = "[" + fiboList + "]";
+        }
+        document.getElementById("fibo-button").onclick = function(){
+            go();
+        }
+    </script>
 </body>
