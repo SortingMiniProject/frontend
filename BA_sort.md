@@ -16,7 +16,7 @@ permalink: /sort/
         <tbody id=body>
             <tr>
                 <td>List Number</td>
-                <td>Song Name</td>
+                <td>City Name</td>
             </tr>
         </tbody>
         <tbody id=body2>

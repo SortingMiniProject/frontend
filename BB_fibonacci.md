@@ -4,11 +4,12 @@ title: Fibonacci
 permalink: /fibo/
 ---
 
-<head></head>
+<head>
+</head>
 <body>
     <input type="text" id="list-len" placeholder="Input a number">
-    <button class="Go" id="fibo-button" style="height:20px;width:100px">Go!</button>
-    <button class="Delete" id="delete-button" style="height:20px;width:100px">Reset Table</button>
+    <button class="Go" id="fibo-button">Go!</button>
+    <button class="Delete" id="delete-button">Reset Table</button>
     <table>
         <thead>
         <tr>
