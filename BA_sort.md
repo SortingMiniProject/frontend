@@ -65,10 +65,10 @@ permalink: /sort/
             })
             .then(data => {
                 console.log(JSON.stringify(data));
-                // for (let i = 0; i < data.sortedCities.length; i++) {
+                for (let i = 0; i < data.sortedCities.length; i++) {
                 const row = document.createElement("tr");
                 const cell1 = document.createElement("td");
-                const cellText1 = document.createTextNode(data.sortedCities.length);
+                const cellText1 = document.createTextNode(data.sortedCities[i]);
                 cell1.appendChild(cellText1);
                 row.appendChild(cell1);
                 const cell2 = document.createElement("td");
@@ -80,7 +80,7 @@ permalink: /sort/
                 cell3.appendChild(cellText3);
                 row.appendChild(cell3);
                 body2.appendChild(row);
-            // }
+            }
             document.getElementById("table").appendChild(body2);
             })
             .catch(error => {
@@ -136,10 +136,10 @@ permalink: /sort/
             })
             .then(data => {
                 console.log(JSON.stringify(data));
-                // for (let i = 0; i < data.sortedCities.length; i++) {
+                for (let i = 0; i < 100; i++) {
                 const row = document.createElement("tr");
                 const cell1 = document.createElement("td");
-                const cellText1 = document.createTextNode(data.sortedCities.length);
+                const cellText1 = document.createTextNode(data.sortedCities[i]);
                 cell1.appendChild(cellText1);
                 row.appendChild(cell1);
                 const cell2 = document.createElement("td");
@@ -151,7 +151,7 @@ permalink: /sort/
                 cell3.appendChild(cellText3);
                 row.appendChild(cell3);
                 body2.appendChild(row);
-            // }
+            }
             document.getElementById("table").appendChild(body2);
             })
             .catch(error => {
@@ -171,10 +171,10 @@ permalink: /sort/
             })
             .then(data => {
                 console.log(JSON.stringify(data));
-                // for (let i = 0; i < data.sortedCities.length; i++) {
+                for (let i = 0; i < 100; i++) {
                 const row = document.createElement("tr");
                 const cell1 = document.createElement("td");
-                const cellText1 = document.createTextNode(data.sortedCities.length);
+                const cellText1 = document.createTextNode(data.sortedCities[i]);
                 cell1.appendChild(cellText1);
                 row.appendChild(cell1);
                 const cell2 = document.createElement("td");
@@ -186,7 +186,7 @@ permalink: /sort/
                 cell3.appendChild(cellText3);
                 row.appendChild(cell3);
                 body2.appendChild(row);
-            // }
+            }
             document.getElementById("table").appendChild(body2);
             })
             .catch(error => {
