@@ -14,10 +14,12 @@ permalink: /sort/
         </tr>
         </thead>
         <tbody id=body>
-            <!-- <tr>
+            <tr>
                 <td>List Number</td>
                 <td>Song Name</td>
-            </tr> -->
+            </tr>
+        </tbody>
+        <tbody id=body2>
         </tbody>
     </table>
     <button class="Insertion Sort" id="insertion-button" style="height:20px;width:100px">Insertion Sort</button>
@@ -29,18 +31,6 @@ permalink: /sort/
     <br><label id="complexity">Complexity: <br></label>
     <script>
         function createTable() {
-            // const tbl = document.createElement("table");
-            const body = document.createElement("tbody");
-            const firstRow = document.createElement("tr");
-            const cellList = document.createElement("td");
-            const cellTextList = document.createTextNode("List Number");
-            cellList.appendChild(cellTextList);
-            firstRow.appendChild(cellList);
-            const cellSong = document.createElement("td");
-            const cellTextSong = document.createTextNode("Song Name");
-            cellSong.appendChild(cellTextSong);
-            firstRow.appendChild(cellSong);
-            document.getElementById("body").appendChild(firstRow);
             for (let i = 0; i < 4; i++) {
                 const row = document.createElement("tr");
                 const cell1 = document.createElement("td");
@@ -51,18 +41,31 @@ permalink: /sort/
                 const cellText2 = document.createTextNode("TBD");
                 cell2.appendChild(cellText2);
                 row.appendChild(cell2);
-                document.getElementById("body").appendChild(row);
+                body2.appendChild(row);
             }
-            document.getElementById("table").appendChild(tblBody);
-            // document.body.appendChild(tbl);
-            // tbl.setAttribute("border", "2");
+            document.getElementById("table").appendChild(body2);
         }
         function resetTable() {
-            document.getElementById("body").remove(); 
+            const element = document.getElementById("body2");
+            while (element.firstChild) {
+            element.removeChild(element.firstChild);
+            }
         }
         document.getElementById("insertion-button").onclick = function(){
             createTable();
             document.getElementById("sort-type").innerHTML = "Sort Type: Insertion Sort";
+        }
+        document.getElementById("merge-button").onclick = function(){
+            createTable();
+            document.getElementById("sort-type").innerHTML = "Sort Type: Merge Sort";
+        }
+        document.getElementById("selection-button").onclick = function(){
+            createTable();
+            document.getElementById("sort-type").innerHTML = "Sort Type: Selection Sort";
+        }
+        document.getElementById("bubble-button").onclick = function(){
+            createTable();
+            document.getElementById("sort-type").innerHTML = "Sort Type: Bubble Sort";
         }
         document.getElementById("delete-button").onclick = function(){
             resetTable();
