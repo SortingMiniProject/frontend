@@ -11,13 +11,14 @@ permalink: /sort/
     <table id=table>
         <thead>
         <tr>
-            <th colspan=2>4 Types of Sorts</th>
+            <th colspan=3>4 Types of Sorts</th>
         </tr>
         </thead>
         <tbody id=body>
             <tr>
-                <td>List Number</td>
-                <td>City Name</td>
+                <td>Number of Cities Sorted</td>
+                <td>Algorithm</td>
+                <td>Time Taken (seconds)</td>
             </tr>
         </tbody>
         <tbody id=body2>
@@ -28,8 +29,8 @@ permalink: /sort/
     <button class="Selection Sort" id="selection-button" style="height:20px;width:150px">Selection Sort</button>
     <button class="Bubble Sort" id="bubble-button" style="height:20px;width:100px">Bubble Sort<br></button>
     <button class="Delete" id="delete-button" style="height:20px;width:100px">Reset Table<br></button>
-    <br><label id="sort-type">Sort Type: </label>
-    <br><label id="complexity">Complexity: <br></label>
+    <!-- <br><label id="sort-type">Sort Type: </label>
+    <br><label id="complexity">Complexity: <br></label> -->
     <script>
         function createTable(data) {
             for (let i = 0; i < data.sortedCities.length; i++) {
@@ -46,7 +47,14 @@ permalink: /sort/
             }
             document.getElementById("table").appendChild(body2);
         }
-        const baseUrl = "http://localhost:8085/api/insertion";
+        function resetTable() {
+            const element = document.getElementById("body2");
+            while (element.firstChild) {
+            element.removeChild(element.firstChild);
+            }
+        }
+        document.getElementById("insertion-button").onclick = function(){
+            const baseUrl = "http://localhost:8085/api/insertion";
         fetch (baseUrl, { method: 'GET'})
             .then(response => {
                 if (!response.ok) {
@@ -57,30 +65,133 @@ permalink: /sort/
             })
             .then(data => {
                 console.log(JSON.stringify(data));
+                // for (let i = 0; i < data.sortedCities.length; i++) {
+                const row = document.createElement("tr");
+                const cell1 = document.createElement("td");
+                const cellText1 = document.createTextNode(data.sortedCities.length);
+                cell1.appendChild(cellText1);
+                row.appendChild(cell1);
+                const cell2 = document.createElement("td");
+                const cellText2 = document.createTextNode("Insertion");
+                cell2.appendChild(cellText2);
+                row.appendChild(cell2);
+                const cell3 = document.createElement("td");
+                const cellText3 = document.createTextNode(data.timeInSeconds);
+                cell3.appendChild(cellText3);
+                row.appendChild(cell3);
+                body2.appendChild(row);
+            // }
+            document.getElementById("table").appendChild(body2);
             })
             .catch(error => {
                 console.error('Error:', error);
              });
-        function resetTable() {
-            const element = document.getElementById("body2");
-            while (element.firstChild) {
-            element.removeChild(element.firstChild);
-            }
-        }
-        document.getElementById("insertion-button").onclick = function(){
             // createTable(data);
             document.getElementById("sort-type").innerHTML = "Sort Type: Insertion Sort";
         }
         document.getElementById("merge-button").onclick = function(){
-            createTable();
+            const baseUrl = "http://localhost:8085/api/merge";
+        fetch (baseUrl, { method: 'GET'})
+            .then(response => {
+                if (!response.ok) {
+                    console.log(response);
+                    throw new Error('Network response was not ok');
+                }
+                return response.json();
+            })
+            .then(data => {
+                console.log(JSON.stringify(data));
+                // for (let i = 0; i < data.sortedCities.length; i++) {
+                const row = document.createElement("tr");
+                const cell1 = document.createElement("td");
+                const cellText1 = document.createTextNode(data.sortedCities.length);
+                cell1.appendChild(cellText1);
+                row.appendChild(cell1);
+                const cell2 = document.createElement("td");
+                const cellText2 = document.createTextNode("Merge");
+                cell2.appendChild(cellText2);
+                row.appendChild(cell2);
+                const cell3 = document.createElement("td");
+                const cellText3 = document.createTextNode(data.timeInSeconds);
+                cell3.appendChild(cellText3);
+                row.appendChild(cell3);
+                body2.appendChild(row);
+            // }
+            document.getElementById("table").appendChild(body2);
+            })
+            .catch(error => {
+                console.error('Error:', error);
+             });
             document.getElementById("sort-type").innerHTML = "Sort Type: Merge Sort";
         }
         document.getElementById("selection-button").onclick = function(){
-            createTable();
+            const baseUrl = "http://localhost:8085/api/selection";
+        fetch (baseUrl, { method: 'GET'})
+            .then(response => {
+                if (!response.ok) {
+                    console.log(response);
+                    throw new Error('Network response was not ok');
+                }
+                return response.json();
+            })
+            .then(data => {
+                console.log(JSON.stringify(data));
+                // for (let i = 0; i < data.sortedCities.length; i++) {
+                const row = document.createElement("tr");
+                const cell1 = document.createElement("td");
+                const cellText1 = document.createTextNode(data.sortedCities.length);
+                cell1.appendChild(cellText1);
+                row.appendChild(cell1);
+                const cell2 = document.createElement("td");
+                const cellText2 = document.createTextNode("Selection");
+                cell2.appendChild(cellText2);
+                row.appendChild(cell2);
+                const cell3 = document.createElement("td");
+                const cellText3 = document.createTextNode(data.timeInSeconds);
+                cell3.appendChild(cellText3);
+                row.appendChild(cell3);
+                body2.appendChild(row);
+            // }
+            document.getElementById("table").appendChild(body2);
+            })
+            .catch(error => {
+                console.error('Error:', error);
+             });
             document.getElementById("sort-type").innerHTML = "Sort Type: Selection Sort";
         }
         document.getElementById("bubble-button").onclick = function(){
-            createTable();
+            const baseUrl = "http://localhost:8085/api/bubble";
+        fetch (baseUrl, { method: 'GET'})
+            .then(response => {
+                if (!response.ok) {
+                    console.log(response);
+                    throw new Error('Network response was not ok');
+                }
+                return response.json();
+            })
+            .then(data => {
+                console.log(JSON.stringify(data));
+                // for (let i = 0; i < data.sortedCities.length; i++) {
+                const row = document.createElement("tr");
+                const cell1 = document.createElement("td");
+                const cellText1 = document.createTextNode(data.sortedCities.length);
+                cell1.appendChild(cellText1);
+                row.appendChild(cell1);
+                const cell2 = document.createElement("td");
+                const cellText2 = document.createTextNode("Bubble");
+                cell2.appendChild(cellText2);
+                row.appendChild(cell2);
+                const cell3 = document.createElement("td");
+                const cellText3 = document.createTextNode(data.timeInSeconds);
+                cell3.appendChild(cellText3);
+                row.appendChild(cell3);
+                body2.appendChild(row);
+            // }
+            document.getElementById("table").appendChild(body2);
+            })
+            .catch(error => {
+                console.error('Error:', error);
+             });
             document.getElementById("sort-type").innerHTML = "Sort Type: Bubble Sort";
         }
         document.getElementById("delete-button").onclick = function(){
