@@ -122,8 +122,10 @@ function calculateFibonacciStream(n) {
         function go() {
             //for loop
             var fiboLen = document.getElementById("list-len").value;
-            const baseUrl = "http://localhost:8085/api/fibofor?n=" + fiboLen;
-        fetch (baseUrl, {method: 'GET', headers: {'Content-Type':'application/json'}})
+            var len1 = fiboLen-1;
+            var fiboData;
+            const baseUrl = "http://localhost:8085/api/fibofor?n=" + len1;
+           fetch (baseUrl, {method: 'GET', headers: {'Content-Type':'application/json'}})
             .then(response => {
                 if (!response.ok) {
                     console.log(response);
@@ -133,35 +135,34 @@ function calculateFibonacciStream(n) {
             })
             .then(data => {
                 console.log(JSON.stringify(data));
-            })
-            .catch(error => {
-                console.error('Error:', error);
-             });
-            const resultFor = forFibo(fiboLen-1);
-            // for (let i = 0; i < 4; i++) {
-                const row = document.createElement("tr");
+                fiboData = data;
+                console.log("fiboData="+data.fiboForRes);
+                  const row = document.createElement("tr");
                 const cell1 = document.createElement("td");
                 // var methodNum = i + 1;
                 const cellText1 = document.createTextNode("For");
                 cell1.appendChild(cellText1);
                 row.appendChild(cell1);
                 const cell2 = document.createElement("td");
-                const cellText2 = document.createTextNode(resultFor.time);
+                const cellText2 = document.createTextNode(data.timeInSeconds+" secs");
                 cell2.appendChild(cellText2);
                 row.appendChild(cell2);
                 const cell3 = document.createElement("td");
                 const cellText3 = document.createTextNode(fiboLen);
                 cell3.appendChild(cellText3);
                 row.appendChild(cell3);
-                fiboList = resultFor.sequence;
                 const cell4 = document.createElement("td");
-                const cellText4 = document.createTextNode("[" + fiboList + "]");
+                const cellText4 = document.createTextNode("[" + data.fiboForRes + "]");
                 cell4.appendChild(cellText4);
                 row.appendChild(cell4);
                 body2.appendChild(row);
-                //while loop
-            const baseUrl = "http://localhost:8085/api/fibowhile?n=" + fiboLen;
-        fetch (baseUrl, {method: 'GET', headers: {'Content-Type':'application/json'}})
+            })
+            .catch(error => {
+                console.error('Error:', error);
+             });
+         //while loop
+            const baseUrl2 = "http://localhost:8085/api/fibowhile?n=" + len1;
+           fetch (baseUrl2, {method: 'GET', headers: {'Content-Type':'application/json'}})
             .then(response => {
                 if (!response.ok) {
                     console.log(response);
@@ -171,11 +172,6 @@ function calculateFibonacciStream(n) {
             })
             .then(data => {
                 console.log(JSON.stringify(data));
-            })
-            .catch(error => {
-                console.error('Error:', error);
-             });
-                const resultWhile = fibonacciWhile(fiboLen-1);
                 const row2 = document.createElement("tr");
                 const cellW = document.createElement("td");
                 // var methodNum = i + 1;
@@ -183,22 +179,25 @@ function calculateFibonacciStream(n) {
                 cellW.appendChild(cellTextW);
                 row2.appendChild(cellW);
                 const cellX = document.createElement("td");
-                const cellTextX = document.createTextNode(resultWhile.time);
+                const cellTextX = document.createTextNode(data.timeInSeconds+" secs");
                 cellX.appendChild(cellTextX);
                 row2.appendChild(cellX);
                 const cellY = document.createElement("td");
                 const cellTextY = document.createTextNode(fiboLen);
                 cellY.appendChild(cellTextY);
                 row2.appendChild(cellY);
-                fiboList = resultWhile.sequence;
                 const cellZ = document.createElement("td");
-                const cellTextZ = document.createTextNode("[" + fiboList + "]");
+                const cellTextZ = document.createTextNode("[" + data.fiboWhileRes + "]");
                 cellZ.appendChild(cellTextZ);
                 row2.appendChild(cellZ);
                 body2.appendChild(row2);
-                //recursion
-            const baseUrl = "http://localhost:8085/api/fiborecursive?n=" + fiboLen;
-        fetch (baseUrl, {method: 'GET', headers: {'Content-Type':'application/json'}})
+            })
+            .catch(error => {
+                console.error('Error:', error);
+             });
+            //recursion
+            const baseUrl3 = "http://localhost:8085/api/fiborecursive?n=" + len1;
+        fetch (baseUrl3, {method: 'GET', headers: {'Content-Type':'application/json'}})
             .then(response => {
                 if (!response.ok) {
                     console.log(response);
@@ -208,11 +207,6 @@ function calculateFibonacciStream(n) {
             })
             .then(data => {
                 console.log(JSON.stringify(data));
-            })
-            .catch(error => {
-                console.error('Error:', error);
-             });                
-                const resultRecursive = fibonacciRecursive(fiboLen-1);
                 const row3 = document.createElement("tr");
                 const cellW1 = document.createElement("td");
                 // var methodNum = i + 1;
@@ -220,22 +214,25 @@ function calculateFibonacciStream(n) {
                 cellW1.appendChild(cellTextW1);
                 row3.appendChild(cellW1);
                 const cellX1 = document.createElement("td");
-                const cellTextX1 = document.createTextNode(resultRecursive.time);
+                const cellTextX1 = document.createTextNode(data.timeInSeconds+" secs");
                 cellX1.appendChild(cellTextX1);
                 row3.appendChild(cellX1);
                 const cellY1 = document.createElement("td");
                 const cellTextY1 = document.createTextNode(fiboLen);
                 cellY1.appendChild(cellTextY1);
                 row3.appendChild(cellY1);
-                fiboList = resultRecursive.sequence;
                 const cellZ1 = document.createElement("td");
-                const cellTextZ1 = document.createTextNode("[" + fiboList + "]");
+                const cellTextZ1 = document.createTextNode("[" + data.fiboRecursiveRes + "]");
                 cellZ1.appendChild(cellTextZ1);
                 row3.appendChild(cellZ1);
                 body2.appendChild(row3);
+            })
+            .catch(error => {
+                console.error('Error:', error);
+             });                
                 // Stream
-            const baseUrl = "http://localhost:8085/api/fibostream?n=" + fiboLen;
-        fetch (baseUrl, {method: 'GET', headers: {'Content-Type':'application/json'}})
+            const baseUrl4 = "http://localhost:8085/api/fibostream?n=" + len1;
+        fetch (baseUrl4, {method: 'GET', headers: {'Content-Type':'application/json'}})
             .then(response => {
                 if (!response.ok) {
                     console.log(response);
@@ -245,11 +242,6 @@ function calculateFibonacciStream(n) {
             })
             .then(data => {
                 console.log(JSON.stringify(data));
-            })
-            .catch(error => {
-                console.error('Error:', error);
-             });                
-                const resultStream =  calculateFibonacciStream(fiboLen-1);
                 const row4 = document.createElement("tr");
                 const cellW11 = document.createElement("td");
                 // var methodNum = i + 1;
@@ -257,19 +249,22 @@ function calculateFibonacciStream(n) {
                 cellW11.appendChild(cellTextW11);
                 row4.appendChild(cellW11);
                 const cellX11 = document.createElement("td");
-                const cellTextX11 = document.createTextNode(resultStream.time);
+                const cellTextX11 = document.createTextNode(data.timeInSeconds+" secs");
                 cellX11.appendChild(cellTextX11);
                 row4.appendChild(cellX11);
                 const cellY11 = document.createElement("td");
                 const cellTextY11 = document.createTextNode(fiboLen);
                 cellY11.appendChild(cellTextY11);
                 row4.appendChild(cellY11);
-                fiboList = resultStream.sequence;
                 const cellZ11 = document.createElement("td");
-                const cellTextZ11 = document.createTextNode("[" + fiboList + "]");
+                const cellTextZ11 = document.createTextNode("[" + data.fiboStreamRes + "]");
                 cellZ11.appendChild(cellTextZ11);
                 row4.appendChild(cellZ11);
                 body2.appendChild(row4);
+            })
+            .catch(error => {
+                console.error('Error:', error);
+             });                
             }
         // }
         function resetTable() {
