@@ -31,7 +31,6 @@ permalink: /sort/
     <br><label id="sort-type">Sort Type: </label>
     <br><label id="complexity">Complexity: <br></label>
     <script>
-        const baseUrl = "http://localhost:8085/api"
         function createTable(data) {
             for (let i = 0; i < data.sortedCities.length; i++) {
                 const row = document.createElement("tr");
@@ -47,6 +46,21 @@ permalink: /sort/
             }
             document.getElementById("table").appendChild(body2);
         }
+        const baseUrl = "http://localhost:8085/api/insertion";
+        fetch (baseUrl, { method: 'GET'})
+            .then(response => {
+                if (!response.ok) {
+                    console.log(response);
+                    throw new Error('Network response was not ok');
+                }
+                return response.json();
+            })
+            .then(data => {
+                console.log(JSON.stringify(data));
+            })
+            .catch(error => {
+                console.error('Error:', error);
+             });
         function resetTable() {
             const element = document.getElementById("body2");
             while (element.firstChild) {
@@ -54,7 +68,7 @@ permalink: /sort/
             }
         }
         document.getElementById("insertion-button").onclick = function(){
-            createTable(baseUrl + "/insertion");
+            // createTable(data);
             document.getElementById("sort-type").innerHTML = "Sort Type: Insertion Sort";
         }
         document.getElementById("merge-button").onclick = function(){
