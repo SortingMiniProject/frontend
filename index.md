@@ -2,8 +2,10 @@
 layout: home
 search_exclude: true
 ---
-A modified blog for CSA Based on Fastpages- Tirth Thakkar & Haseeb Beg   
+Our Two Week Mini Project centered around different Cities
 
+This project was done with assistance from a database with 140,000+ cities
 
+Made by Vinay, Yuri, and Edwin
 
 # Posts
