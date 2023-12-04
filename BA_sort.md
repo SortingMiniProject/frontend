@@ -5,6 +5,7 @@ permalink: /sort/
 ---
 
 <head>
+<!-- <script src = "http://localhost:8085/api"></script> -->
 </head>
 <body>
     <table id=table>
@@ -30,8 +31,9 @@ permalink: /sort/
     <br><label id="sort-type">Sort Type: </label>
     <br><label id="complexity">Complexity: <br></label>
     <script>
-        function createTable() {
-            for (let i = 0; i < 4; i++) {
+        const baseUrl = "http://localhost:8085/api"
+        function createTable(data) {
+            for (let i = 0; i < data.sortedCities.length; i++) {
                 const row = document.createElement("tr");
                 const cell1 = document.createElement("td");
                 const cellText1 = document.createTextNode(`${i}`);
@@ -52,7 +54,7 @@ permalink: /sort/
             }
         }
         document.getElementById("insertion-button").onclick = function(){
-            createTable();
+            createTable(baseUrl + "/insertion");
             document.getElementById("sort-type").innerHTML = "Sort Type: Insertion Sort";
         }
         document.getElementById("merge-button").onclick = function(){
