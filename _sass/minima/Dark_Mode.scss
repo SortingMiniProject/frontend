@@ -1,9 +1,9 @@
-$high-emph: rgba(white, 0.87);
-$med-emph: rgba(white, 0.69); 
-$low-emph: rgba(white, 0.38);
+$high-emph: rgba(rgb(238, 41, 41), 0.87);
+$med-emph: rgba(rgb(255, 255, 255), 0.69); 
+$low-emph: rgba(rgb(255, 255, 255), 0.38);
 $dark-grey : #121212; 
 // $dark-grey : #1F1B24;
-$overlay: mix($dark-grey, white, 95%);
+$overlay: mix($dark-grey, rgb(141, 35, 187), 95%);
 $overlay-light: mix($dark-grey, white, 86%);
 
 html, body, input, textarea, select, button {   
@@ -12,7 +12,7 @@ html, body, input, textarea, select, button {
 }
 
 a {
-    color: rgb(75, 186, 255) !important;
+    color: rgb(183, 75, 255) !important;
 }
 
 a:hover {
@@ -92,14 +92,14 @@ li .post-meta-description {
 }
 
 .search-result-preview{
-    color: lightgray !important; 
+    color: rgb(129, 27, 193) !important; 
 }
 
 .search-result-highlight {
-    color:yellow !important;
+    color:rgb(0, 183, 255) !important;
     font-weight:bold !important;
 }
 
 .search-results-list-item .search-result-title {
-    color: cornflowerblue !important;
+    color: rgb(100, 237, 173) !important;
 }
