@@ -32,7 +32,6 @@ permalink: /sort/
     <!-- Pagination buttons -->
     <button id="prev-button" style="height:20px;width:100px">Previous</button>
     <button id="next-button" style="height:20px;width:100px">Next</button>
-    
     <!-- <br><label id="sort-type">Sort Type: </label>
     <br><label id="complexity">Complexity: <br></label> -->
     <script>
@@ -41,7 +40,6 @@ permalink: /sort/
         let totalData = [];
         let currentSortType = "";
         let currentSortTime = "";
-
         function renderPage(pageNumber) {
             resetTable();
             const startIndex = (pageNumber - 1) * itemsPerPage;
@@ -63,28 +61,24 @@ permalink: /sort/
                 body2.appendChild(row);
             }
         }
-
         function resetTable() {
             const element = document.getElementById("body2");
             while (element.firstChild) {
                 element.removeChild(element.firstChild);
             }
         }
-
         document.getElementById('next-button').addEventListener('click', () => {
             if (currentPage * itemsPerPage < totalData.length) {
                 currentPage++;
                 renderPage(currentPage);
             }
         });
-
         document.getElementById('prev-button').addEventListener('click', () => {
             if (currentPage > 1) {
                 currentPage--;
                 renderPage(currentPage);
             }
         });
-
         function handleSort(sortType, baseUrl) {
             fetch(baseUrl, { method: 'GET'})
                 .then(response => response.json())
@@ -97,7 +91,6 @@ permalink: /sort/
                 })
                 .catch(error => console.error('Error:', error));
         }
-
         document.getElementById("insertion-button").onclick = () => handleSort("Insertion", "http://localhost:8085/api/insertion");
         document.getElementById("merge-button").onclick = () => handleSort("Merge", "http://localhost:8085/api/merge");
         document.getElementById("selection-button").onclick = () => handleSort("Selection", "http://localhost:8085/api/selection");
