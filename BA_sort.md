@@ -7,19 +7,18 @@ permalink: /sort/
     <!-- <script src = "http://localhost:8085/api"></script> -->
 </head>
 <body>
-    <label id="sort-type">Sort Type</label>
-    <label id="time-taken">Time Taken</label>
+    <!-- <label id="sort-type">Sort Type</label> -->
+    <label id="time-taken">Complexity</label>
     <table id="table">
         <thead>
             <tr>
-                <th colspan=3>4 Types of Sorts</th>
+                <th colspan=2 id="title">Choose a sort type to start!</th>
             </tr>
         </thead>
         <tbody id="body">
             <tr>
                 <td>City Number</td>
                 <td>City Name</td>
-                <td>Time Taken (seconds)</td>
             </tr>
         </tbody>
         <tbody id="body2">
@@ -62,20 +61,18 @@ permalink: /sort/
                 const cellText2 = document.createTextNode(totalData[i]);
                 cell2.appendChild(cellText2);
                 row.appendChild(cell2);
-                const cell3 = document.createElement("td");
-                const cellText3 = document.createTextNode(currentSortTime);
-                cell3.appendChild(cellText3);
-                row.appendChild(cell3);
                 body2.appendChild(row);
             }
-            document.getElementById('sort-type').innerHTML = "Sort Type: " + currentSortType;
-            document.getElementById('time-taken').innerHTML = "Time Taken: " + currentSortTime;
+            // document.getElementById('sort-type').innerHTML = "Sort Type: " + currentSortType;
+            document.getElementById('time-taken').innerHTML = "Complexity: " + currentSortTime + " seconds";
+            document.getElementById('title').innerHTML = "147,400 Cities Sorted by: " + currentSortType + " sort";
         }
         function resetTable() {
             const element = document.getElementById("body2");
             while (element.firstChild) {
                 element.removeChild(element.firstChild);
             }
+            document.getElementById('title').innerHTML = "Choose a sort type to start!";
         }
         document.getElementById('next-button').addEventListener('click', () => {
             if (currentPage * itemsPerPage < totalData.length) {
@@ -119,21 +116,19 @@ permalink: /sort/
                     const cellText2 = document.createTextNode(searchData[i]);
                     cell2.appendChild(cellText2);
                     row.appendChild(cell2);
-                    const cell3 = document.createElement("td");
-                    const cellText3 = document.createTextNode(currentSortTime);
-                    cell3.appendChild(cellText3);
-                    row.appendChild(cell3);
                     body2.appendChild(row);
                 }
+                document.getElementById('title').innerHTML = "Search results for: " + searchQuery;
             } else {
                 alert("No cities found with that name.");
                 resetTable();
             }
         });
-        document.getElementById('clear-search-button').addEventListener('click', () => {
-            handleSort(currentSortType, "http://localhost:8085/api/" + currentSortType.toLowerCase());
-        });
+        // document.getElementById('clear-search-button').addEventListener('click', () => {
+        //     handleSort(currentSortType, "http://localhost:8085/api/" + currentSortType.toLowerCase());
+        // });
         function handleSort(sortType, baseUrl) {
+            document.getElementById('title').innerHTML = "loading...";
             fetch(baseUrl, { method: 'GET'})
                 .then(response => response.json())
                 .then(data => {
