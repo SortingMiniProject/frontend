@@ -36,72 +36,72 @@ permalink: /fibo/
         var fiboList = [];
         fiboList.push(0);
         fiboList.push(1);
-        function forFibo(n) {
-            if (n <= 0) {
-                return 'Invalid input. N should be a positive integer.';
-            }
-            const startTime = performance.now();
-            for (let i = 2; i <= n; i++) {
-            fiboList[i] = fiboList[i - 1] + fiboList[i - 2];
-            }
-            const endTime = performance.now();
-            const elapsedTime = endTime - startTime;
-            return {
-                sequence: fiboList.slice(0, n + 1),
-                time: elapsedTime.toFixed(5) + ' milliseconds',
-            };
-        }
-        function fibonacciWhile(n) {
-    if (n <= 0) {
-        return 'Invalid input. N should be a positive integer.';
-    }
-    let fibSequence = [0, 1];
-    let i = 2;
-    const startTime = performance.now();
-    while (i <= n) {
-        fibSequence[i] = fibSequence[i - 1] + fibSequence[i - 2];
-        i++;
-    }
-    const endTime = performance.now();
-    const elapsedTime = endTime - startTime;
-    return {
-        sequence: fibSequence.slice(0, n + 1),
-        time: elapsedTime.toFixed(5) + ' milliseconds',
-    };
-}
-        function fibonacciRecursive(n) {
-    if (n <= 0) {
-        return 'Invalid input. N should be a positive integer.';
-    }
-    const fibSequence = [];
-    const startTime = performance.now();
-    function calculateFibonacci(i) {
-        if (i <= n) {
-            if (i === 0) {
-                fibSequence[i] = 0;
-            } else if (i === 1) {
-                fibSequence[i] = 1;
-            } else {
-                fibSequence[i] = fibSequence[i - 1] + fibSequence[i - 2];
-            }
-            calculateFibonacci(i + 1);
-        }
-    }
-    calculateFibonacci(0);
-    const endTime = performance.now();
-    const elapsedTime = endTime - startTime;
-    return {
-        sequence: fibSequence.slice(0, n + 1),
-        time: elapsedTime.toFixed(5) + ' milliseconds',
-    };
-}
-function* fibonacciStream() {
-    let a = 0, b = 1;
-    while (true) {
-        yield a;
-        [a, b] = [b, a + b];
-    }
-}
+//         function forFibo(n) {
+//             if (n <= 0) {
+//                 return 'Invalid input. N should be a positive integer.';
+//             }
+//             const startTime = performance.now();
+//             for (let i = 2; i <= n; i++) {
+//             fiboList[i] = fiboList[i - 1] + fiboList[i - 2];
+//             }
+//             const endTime = performance.now();
+//             const elapsedTime = endTime - startTime;
+//             return {
+//                 sequence: fiboList.slice(0, n + 1),
+//                 time: elapsedTime.toFixed(5) + ' milliseconds',
+//             };
+//         }
+//         function fibonacciWhile(n) {
+//     if (n <= 0) {
+//         return 'Invalid input. N should be a positive integer.';
+//     }
+//     let fibSequence = [0, 1];
+//     let i = 2;
+//     const startTime = performance.now();
+//     while (i <= n) {
+//         fibSequence[i] = fibSequence[i - 1] + fibSequence[i - 2];
+//         i++;
+//     }
+//     const endTime = performance.now();
+//     const elapsedTime = endTime - startTime;
+//     return {
+//         sequence: fibSequence.slice(0, n + 1),
+//         time: elapsedTime.toFixed(5) + ' milliseconds',
+//     };
+// }
+//         function fibonacciRecursive(n) {
+//     if (n <= 0) {
+//         return 'Invalid input. N should be a positive integer.';
+//     }
+//     const fibSequence = [];
+//     const startTime = performance.now();
+//     function calculateFibonacci(i) {
+//         if (i <= n) {
+//             if (i === 0) {
+//                 fibSequence[i] = 0;
+//             } else if (i === 1) {
+//                 fibSequence[i] = 1;
+//             } else {
+//                 fibSequence[i] = fibSequence[i - 1] + fibSequence[i - 2];
+//             }
+//             calculateFibonacci(i + 1);
+//         }
+//     }
+//     calculateFibonacci(0);
+//     const endTime = performance.now();
+//     const elapsedTime = endTime - startTime;
+//     return {
+//         sequence: fibSequence.slice(0, n + 1),
+//         time: elapsedTime.toFixed(5) + ' milliseconds',
+//     };
+// }
+// function* fibonacciStream() {
+//     let a = 0, b = 1;
+//     while (true) {
+//         yield a;
+//         [a, b] = [b, a + b];
+//     }
+// }
 function calculateFibonacciStream(n) {
     if (n <= 0) {
         return 'Invalid input. N should be a positive integer.';
@@ -274,6 +274,7 @@ function calculateFibonacciStream(n) {
             }
         }
         document.getElementById("fibo-button").onclick = function(){
+            resetTable();
             go();
         }
         document.getElementById("delete-button").onclick = function(){

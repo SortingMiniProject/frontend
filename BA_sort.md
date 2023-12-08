@@ -100,7 +100,7 @@ permalink: /sort/
     <label for="search-input">Search City:</label>
     <input type="text" id="search-input" style="width: 150px;">
     <button id="search-button" style="height:20px;width:60px">Search</button>
-    <button id="clear-search-button" style="height:20px;width:100px">Clear Search</button>
+    <!-- <button id="clear-search-button" style="height:20px;width:100px">Clear Search</button> -->
     <script>
         let currentPage = 1;
         const itemsPerPage = 100;
