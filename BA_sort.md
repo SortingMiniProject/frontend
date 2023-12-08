@@ -161,7 +161,6 @@ permalink: /sort/
             const searchQuery = document.getElementById('search-input').value.toLowerCase();
             const filteredData = totalData.filter(city => city.toLowerCase().includes(searchQuery));
             var searchData;
-            currentPage = 1; // Reset to first page
             if (filteredData.length > 0) {
                 searchData = filteredData; // Update the data to the filtered results
                 resetTable();
