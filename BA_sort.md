@@ -68,7 +68,11 @@ permalink: /sort/
 </head>
 <body>
     <!-- <label id="sort-type">Sort Type</label> -->
-    <label id="time-taken">Complexity</label>
+    <button class="Insertion Sort" id="insertion-button" style="height:20px;width:100px">Insertion Sort</button>
+    <button class="Merge Sort" id="merge-button" style="height:20px;width:100px">Merge Sort</button>
+    <button class="Selection Sort" id="selection-button" style="height:20px;width:150px">Selection Sort</button>
+    <button class="Bubble Sort" id="bubble-button" style="height:20px;width:100px">Bubble Sort</button>
+    <br><label id="time-taken">Complexity</label>
     <table id="table">
         <thead>
             <tr>
@@ -84,23 +88,19 @@ permalink: /sort/
         <tbody id="body2">
         </tbody>
     </table>
-    <button class="Insertion Sort" id="insertion-button" style="height:20px;width:100px">Insertion Sort</button>
-    <button class="Merge Sort" id="merge-button" style="height:20px;width:100px">Merge Sort</button>
-    <button class="Selection Sort" id="selection-button" style="height:20px;width:150px">Selection Sort</button>
-    <button class="Bubble Sort" id="bubble-button" style="height:20px;width:100px">Bubble Sort</button>
-    <button class="Delete" id="delete-button" style="height:20px;width:100px">Reset Table</button>
     <!-- Pagination Controls -->
     <button id="prev-button" style="height:20px;width:100px">Previous</button>
     <button id="next-button" style="height:20px;width:100px">Next</button>
     <!-- Input box for page number -->
-    <label for="page-number-input">Go to page:</label>
+    <br><label for="page-number-input">Go to page:</label>
     <input type="number" id="page-number-input" style="width: 50px;" min="1">
     <button id="go-button" style="height:20px;width:60px">Go</button>
     <!-- Search box for city names -->
-    <label for="search-input">Search City:</label>
+    <br><label for="search-input">Search City:</label>
     <input type="text" id="search-input" style="width: 150px;">
     <button id="search-button" style="height:20px;width:60px">Search</button>
-    <!-- <button id="clear-search-button" style="height:20px;width:100px">Clear Search</button> -->
+    <button id="clear-search-button" style="height:20px;width:100px">Clear Search</button>
+    <br><button class="Delete" id="delete-button" style="height:20px;width:100px">Reset Table</button>
     <script>
         let currentPage = 1;
         const itemsPerPage = 100;
@@ -125,7 +125,7 @@ permalink: /sort/
             }
             // document.getElementById('sort-type').innerHTML = "Sort Type: " + currentSortType;
             document.getElementById('time-taken').innerHTML = "Complexity: " + currentSortTime + " seconds";
-            document.getElementById('title').innerHTML = "147,400 Cities Sorted by: " + currentSortType + " sort";
+            document.getElementById('title').innerHTML = "147, 400 cities sorted by: " + currentSortType + " sort";
         }
         function resetTable() {
             const element = document.getElementById("body2");
@@ -133,6 +133,7 @@ permalink: /sort/
                 element.removeChild(element.firstChild);
             }
             document.getElementById('title').innerHTML = "Choose a sort type to start!";
+            document.getElementById('time-taken').innerHTML = "Complexity";
         }
         document.getElementById('next-button').addEventListener('click', () => {
             if (currentPage * itemsPerPage < totalData.length) {
@@ -184,9 +185,9 @@ permalink: /sort/
                 resetTable();
             }
         });
-        // document.getElementById('clear-search-button').addEventListener('click', () => {
-        //     handleSort(currentSortType, "http://localhost:8085/api/" + currentSortType.toLowerCase());
-        // });
+        document.getElementById('clear-search-button').addEventListener('click', () => {
+            renderPage(currentPage);
+        });
         function handleSort(sortType, baseUrl) {
             document.getElementById('title').innerHTML = "loading...";
             fetch(baseUrl, { method: 'GET'})
