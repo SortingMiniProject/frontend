@@ -3,6 +3,66 @@ layout: page
 title: Sorting Mini Project
 permalink: /sort/
 ---
+<style>
+    @import url("https://fonts.googleapis.com/css?family=Whisper");
+    body {
+        font-family: 'Arial', sans-serif;
+        padding: 20px;
+    }
+
+    table {
+        width: 100%;
+        border-collapse: collapse;
+        margin-top: 20px;
+    }
+
+    th, td {
+        border: 1px solid #ddd;
+        padding: 8px;
+        text-align: left;
+    }
+
+    thead {
+        background-color: #f2f2f2;
+    }
+
+    #title {
+        font-size: 20px;
+        font-weight: bold;
+        margin-bottom: 10px;
+    }
+
+    label {
+        margin-right: 10px;
+    }
+
+    button {
+        margin-right: 10px;
+        margin-top: 10px;
+    }
+
+    #page-number-input {
+        margin-right: 10px;
+    }
+
+    #search-input {
+        margin-right: 10px;
+    }
+
+    #time-taken {
+        font-size: 16px;
+        font-weight: bold;
+        margin-top: 20px;
+    }
+
+    #body2 tr:nth-child(even) {
+        background-color: #f9f9f9;
+    }
+
+    #body2 tr:hover {
+        background-color: #f5f5f5;
+    }
+</style>
 <head>
     <!-- <script src = "http://localhost:8085/api"></script> -->
 </head>
