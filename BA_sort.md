@@ -178,7 +178,7 @@ permalink: /sort/
                     row.appendChild(cell2);
                     body2.appendChild(row);
                 }
-                document.getElementById('title').innerHTML = "Search results for: " + searchQuery;
+                document.getElementById('title').innerHTML = searchData.length + " search result(s) for: " + searchQuery;
             } else {
                 alert("No cities found with that name.");
                 resetTable();
