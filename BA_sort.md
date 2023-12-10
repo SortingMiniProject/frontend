@@ -4,10 +4,26 @@ title: Sorting Mini Project
 permalink: /sort/
 ---
 <style>
-    @import url("https://fonts.googleapis.com/css?family=Whisper");
+@import url("https://fonts.googleapis.com/css?family=Whisper");
     body {
         font-family: 'Arial', sans-serif;
         padding: 20px;
+        background-color: #f4f4f4;
+        color: #333;
+        margin: 0;
+    }
+
+    header {
+        background-color: #3498db;
+        color: #ecf0f1;
+        text-align: center;
+        padding: 20px;
+        margin-bottom: 20px;
+    }
+
+    h1 {
+        font-size: 28px;
+        margin-bottom: 10px;
     }
 
     table {
@@ -18,16 +34,17 @@ permalink: /sort/
 
     th, td {
         border: 1px solid #ddd;
-        padding: 8px;
+        padding: 12px;
         text-align: left;
     }
 
     thead {
-        background-color: #f2f2f2;
+        background-color: #e74c3c;
+        color: #ecf0f1;
     }
 
     #title {
-        font-size: 20px;
+        font-size: 24px;
         font-weight: bold;
         margin-bottom: 10px;
     }
@@ -39,28 +56,39 @@ permalink: /sort/
     button {
         margin-right: 10px;
         margin-top: 10px;
+        padding: 10px;
+        background-color: #3498db;
+        color: #ecf0f1;
+        border: none;
+        cursor: pointer;
+    }
+
+    button:hover {
+        background-color: #2980b9;
     }
 
     #page-number-input {
         margin-right: 10px;
+        padding: 8px;
     }
 
     #search-input {
-        margin-right: 10px;
+    margin-right: 10px;
+    padding: 8px;
     }
 
     #time-taken {
-        font-size: 16px;
-        font-weight: bold;
-        margin-top: 20px;
+    font-size: 18px;
+    font-weight: bold;
+    margin-top: 20px;
     }
 
     #body2 tr:nth-child(even) {
-        background-color: #f9f9f9;
+    background-color: #ecf0f1;
     }
 
     #body2 tr:hover {
-        background-color: #f5f5f5;
+    background-color: #d4e6f1;
     }
 </style>
 <head>
