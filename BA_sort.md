@@ -4,16 +4,32 @@ title: Sorting Mini Project
 permalink: /sort/
 ---
 <style>
-    @import url("https://fonts.googleapis.com/css?family=Whisper");
+    @import url("https://fonts.googleapis.com/css?family=Delius%20Swash%20Caps");
+    @import url("https://fonts.googleapis.com/css?family=Sarina");
+
+    h1 {
+        text-align: center;
+        font-family: 'Delius Swash Caps', sans-serif;
+        font-size: 10px;
+        color: green;
+    }
+    h2 {
+        padding: 30px;
+        text-align: center; 
+        position: relative;
+        color: cyan;
+        font-family: 'Sarina', sans-serif;
+    }
     body {
         font-family: 'Arial', sans-serif;
         padding: 20px;
     }
 
     table {
-        width: 100%;
-        border-collapse: collapse;
-        margin-top: 20px;
+    table-layout: fixed;
+    width: 95%;
+    border-collapse: collapse;
+    margin-top: 20px;
     }
 
     th, td {
@@ -21,11 +37,6 @@ permalink: /sort/
         padding: 8px;
         text-align: left;
     }
-
-    thead {
-        background-color: #f2f2f2;
-    }
-
     #title {
         font-size: 20px;
         font-weight: bold;
@@ -66,12 +77,15 @@ permalink: /sort/
 <head>
     <!-- <script src = "http://localhost:8085/api"></script> -->
 </head>
+## Sort Type
 <body>
     <!-- <label id="sort-type">Sort Type</label> -->
-    <button class="Insertion Sort" id="insertion-button" style="height:20px;width:100px">Insertion Sort</button>
-    <button class="Merge Sort" id="merge-button" style="height:20px;width:100px">Merge Sort</button>
-    <button class="Selection Sort" id="selection-button" style="height:20px;width:150px">Selection Sort</button>
-    <button class="Bubble Sort" id="bubble-button" style="height:20px;width:100px">Bubble Sort</button>
+    <div class="button-elements">
+        <button class="Insertion Sort" id="insertion-button" style="height:20px;width:100px">Insertion Sort</button>
+        <button class="Merge Sort" id="merge-button" style="height:20px;width:100px">Merge Sort</button>
+        <button class="Selection Sort" id="selection-button" style="height:20px;width:150px">Selection Sort</button>
+        <button class="Bubble Sort" id="bubble-button" style="height:20px;width:100px">Bubble Sort</button>
+    </div>
     <br><label id="time-taken">Complexity</label>
     <table id="table">
         <thead>
